@@ -2275,6 +2275,29 @@ button,
 
 /* Vertical Article Layout */
 
+article.post {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+article.post > a.image {
+    flex: 0 0 300px;
+    width: 300px;
+}
+
+article.post > a.image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+article.post .post-text {
+    flex: 1;
+    min-width: 0;
+}
+
 /* Stack all articles vertically */
 .posts {
   display: flex;
