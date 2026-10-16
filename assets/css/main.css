@@ -2387,3 +2387,51 @@ article.post .post-text {
     width: 100%;
   }
 }
+
+/* Arrange paper images to the left of their text */
+.article-content article {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2em;
+}
+
+/* Keep the image at a fixed width */
+.article-content article > a.image {
+    display: block;
+    flex: 0 0 300px;
+    width: 300px;
+    margin: 0;
+}
+
+.article-content article > a.image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Let the text use the remaining space */
+.article-content article > .post-text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Remove default top spacing from the text */
+.article-content article h3:first-child {
+    margin-top: 0;
+}
+
+/* Stack image and text on narrow screens */
+@media screen and (max-width: 736px) {
+    .article-content article {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .article-content article > a.image {
+        flex: none;
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
