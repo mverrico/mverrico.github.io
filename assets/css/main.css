@@ -25,7 +25,7 @@ section, summary, time, mark, audio, video {
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-  display: flex; }
+  display: block; }
 
 body {
   line-height: 1; }
@@ -2338,5 +2338,52 @@ article.post .post-text {
   width: 100%;
 }
 
+/* Image sizing */
+.posts article .article-content .image {
+  display: block;
+  flex: 0 0 35%;
+  max-width: 35%;
+  margin: 0;
+  padding: 0;
+}
 
+.posts article .article-content .image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0.375em;
+}
 
+/* Description occupies the remaining space */
+.posts article .article-content .description {
+  flex: 1;
+  min-width: 0;
+}
+
+.posts article .article-content .description p {
+  margin-bottom: 1em;
+}
+
+/* Remove the original grid's special spacing rules */
+.posts article:nth-child(2n),
+.posts article:nth-child(2n + 1) {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Stack the image and description on small screens */
+@media screen and (max-width: 600px) {
+  .posts article .article-content {
+    flex-direction: column;
+  }
+
+  .posts article .article-content .image {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .posts article .article-content .description {
+    width: 100%;
+  }
+}
